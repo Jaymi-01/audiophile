@@ -54,26 +54,25 @@ const HeroSlider = () => {
               />
             </div>
 
-            <div className="max-w-7xl mx-auto px-6 lg:px-24 h-full flex items-center relative z-10">
+            <div className="max-w-7xl mx-auto font-texts px-6 lg:px-24 h-full flex items-center relative z-10">
               <div className="grid lg:grid-cols-2 gap-8 items-center w-full">
                 <div className="text-center lg:text-left">
-                  <p className="text-white text-sm lg:text-md font-texts font-normal space-x-6 mb-4 lg:mb-6 opacity-50">
+                  <p className="text-white text-sm lg:text-md font-normal tracking-[10px] mb-4 lg:mb-6 opacity-50">
                     {slide.label}
                   </p>
-                  <h1 className="text-4xl lg:text-6xl font-bold mb-6 lg:mb-8 leading-tight">
+                  <h1 className="text-white text-4xl lg:text-6xl font-bold mb-6 lg:mb-8 tracking-[1.286px] leading-tight">
                     {slide.title}
                   </h1>
-                  <p className="text-gray-300 mb-8 lg:mb-10 max-w-md mx-auto lg:mx-0 text-sm lg:text-base opacity-75 leading-relaxed">
+                  <p className="text-white mb-8 lg:mb-10 max-w-md font-normal mx-auto lg:mx-0 text-sm lg:text-base opacity-75 leading-relaxed">
                     {slide.description}
                   </p>
-                  <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 lg:py-4 px-6 lg:px-8 tracking-widest text-xs lg:text-sm transition">
+                  <button className="bg-accent hover:bg-orange-600 text-white font-bold py-4 lg:py-4 px-8 lg:px-8 tracking-[1px] text-sm lg:text-lg transition">
                     SEE PRODUCT
                   </button>
                 </div>
-                {/* Desktop: Image on right */}
                 <div className="hidden lg:flex justify-center lg:justify-end">
                   <div className="relative w-96 h-96">
-                    <div className="absolute inset-0 bg-gray-700 opacity-10 scale-110"></div>
+                    <div className="absolute inset-0 "></div>
                     <img 
                       src={slide.image} 
                       alt={slide.title}
