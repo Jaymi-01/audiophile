@@ -4,8 +4,9 @@
 @theme{
   --color-background: #FAFAFA;
   --color-primary: #0E0E0E;
-  -color-header: #191919;
+  --color-header: #191919;
   --color-accent: #D87D4A;
+  --color-secondary: #FBAF85;
   --font-texts: Manrope;
 
 }
