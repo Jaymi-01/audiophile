@@ -1,6 +1,6 @@
 import React from 'react';
-import MobileHeroImage from '../../images/home/mobile/image-header.jpg';
-import DesktopHeroImage from '../../images/home/desktop/image-hero.jpg';
+import Headset1 from '../../images/home/mobile/image-header.jpg';
+import Headset2 from '../../images/home/desktop/image-hero.jpg';
 
 const HeroSection = () => {
   return (
@@ -9,7 +9,7 @@ const HeroSection = () => {
         {/* Mobile background image - centered headphones, moved up */}
         <div className="lg:hidden absolute inset-0 top-[-80px]">
           <img 
-            src={MobileHeroImage} 
+            src={Headset1} 
             alt="XX99 MARK II HEADPHONES"
             className="w-full h-full object-cover object-[center_30%]"
           />
@@ -20,7 +20,7 @@ const HeroSection = () => {
         {/* Desktop background image - headphones on right, larger */}
         <div className="hidden lg:block absolute inset-0">
           <img 
-            src={DesktopHeroImage} 
+            src={Headset2} 
             alt="XX99 MARK II HEADPHONES"
             className="w-full h-full object-cover scale-110"
           />
