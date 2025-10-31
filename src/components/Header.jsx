@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <>
       <header className="fixed top-0 left-0 w-full font-texts bg-primary shadow-lg z-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-24">
+        <div className="max-w-6xl mx-auto px-6 lg:px-24">
           <div className="flex items-center justify-between h-20 lg:h-24 relative">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
