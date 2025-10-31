@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full bg-primary shadow-lg z-50">
+      <header className="fixed top-0 left-0 w-full font-texts bg-primary shadow-lg z-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-24">
           <div className="flex items-center justify-between h-20 lg:h-24 relative">
             <button
@@ -35,7 +35,7 @@ const Header = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex space-x-8 text-sm absolute left-1/2 transform -translate-x-1/2">
+            <nav className="hidden lg:flex space-x-8 font-texts text-sm absolute left-1/2 transform -translate-x-1/2">
               <NavLink
                 to="/"
                 className={({ isActive }) =>
@@ -82,7 +82,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden fixed top-20 left-0 w-full bg-primary shadow-lg z-40 flex flex-col items-center justify-center transition-all duration-500 ease-in-out ${
+        className={`lg:hidden fixed font-texts top-20 left-0 w-full bg-primary shadow-lg z-40 flex flex-col items-center justify-center transition-all duration-500 ease-in-out ${
           isMenuOpen
             ? "translate-y-0 opacity-100"
             : "-translate-y-10 opacity-0 pointer-events-none"
