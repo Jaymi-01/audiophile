@@ -1,94 +1,56 @@
-import React, { useState, useEffect } from 'react';
-import Headset1 from '../../images/headset-home.png';
+import React from 'react';
+import MobileHeroImage from '../../images/home/mobile/image-header.jpg';
+import DesktopHeroImage from '../../images/home/desktop/image-hero.jpg';
 
-const HeroSlider = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const slides = [
-    {
-      id: 1,
-      label: "NEW PRODUCT",
-      title: "XX99 MARK II HEADPHONES",
-      description: "Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.",
-      image: Headset1
-    },
-    {
-      id: 2,
-      label: "PREMIUM QUALITY",
-      title: "ZX9 SPEAKER",
-      description: "Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.",
-      image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=800&h=800&fit=crop"
-    },
-    {
-      id: 3,
-      label: "WIRELESS FREEDOM",
-      title: "YX1 WIRELESS EARPHONES",
-      description: "Tailor-made for an active lifestyle with incredible sound quality and long battery life.",
-      image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&h=800&fit=crop"
-    }
-  ];
-
-  // Auto-slide every 5 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [slides.length]);
-
+const HeroSection = () => {
   return (
-    <section className="bg-gray-900 text-white relative overflow-hidden">
-      <div className="relative h-[500px] lg:h-[650px]">
-        {slides.map((slide, index) => (
-          <div
-            key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <div className="lg:hidden absolute inset-0">
-              <img 
-                src={slide.image} 
-                alt={slide.title}
-                className="w-full h-full object-cover opacity-30"
-              />
-            </div>
+    <section className="bg-header text-white relative overflow-hidden">
+      <div className="relative h-[500px] lg:h-[750px]">
+        {/* Mobile background image - centered headphones, moved up */}
+        <div className="lg:hidden absolute inset-0 top-[-80px]">
+          <img 
+            src={MobileHeroImage} 
+            alt="XX99 MARK II HEADPHONES"
+            className="w-full h-full object-cover object-[center_30%]"
+          />
+          {/* Dark overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
 
-            <div className="max-w-7xl mx-auto bg-header px-6 lg:px-24 h-full flex items-center relative z-10">
-              <div className="grid lg:grid-cols-2 gap-8 items-center w-full">
-                <div className="text-center lg:text-left">
-                  <p className="text-white text-sm lg:text-md font-normal tracking-[10px] mb-4 lg:mb-6 opacity-50">
-                    {slide.label}
-                  </p>
-                  <h1 className="text-white text-4xl lg:text-6xl font-bold mb-6 lg:mb-8 tracking-[1.286px] leading-tight">
-                    {slide.title}
-                  </h1>
-                  <p className="text-white mb-8 lg:mb-10 max-w-md font-normal mx-auto lg:mx-0 text-sm lg:text-base opacity-75 leading-relaxed">
-                    {slide.description}
-                  </p>
-                  <button className="bg-accent hover:bg-orange-600 text-white font-bold py-4 lg:py-4 px-8 lg:px-8 tracking-[1px] text-sm lg:text-lg transition">
-                    SEE PRODUCT
-                  </button>
-                </div>
-                <div className="hidden lg:flex justify-center lg:justify-end">
-                  <div className="relative w-96 h-96">
-                    <div className="absolute inset-0 "></div>
-                    <img 
-                      src={slide.image} 
-                      alt={slide.title}
-                      className="relative w-full h-full object-contain"
-                    />
-                  </div>
-                </div>
-              </div>
+        {/* Desktop background image - headphones on right, larger */}
+        <div className="hidden lg:block absolute inset-0">
+          <img 
+            src={DesktopHeroImage} 
+            alt="XX99 MARK II HEADPHONES"
+            className="w-full h-full object-cover scale-110"
+          />
+          {/* Dark overlay for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div>
+        </div>
+
+        {/* Content */}
+        <div className="max-w-6xl mx-auto  h-full flex items-center relative z-10">
+          <div className="w-full lg:max-w-lg">
+            {/* Text Content - Centered on mobile, left-aligned on desktop */}
+            <div className="text-center lg:text-left">
+              <p className="text-white text-sm lg:text-md font-normal tracking-[10px] mb-4 lg:mb-6 opacity-50">
+                NEW PRODUCT
+              </p>
+              <h1 className="text-white text-4xl lg:text-6xl font-bold mb-6 lg:mb-8 tracking-[1.286px] leading-tight">
+                XX99 MARK II HEADPHONES
+              </h1>
+              <p className="text-white mb-8 lg:mb-10 max-w-md font-normal mx-auto lg:mx-0 text-sm lg:text-base opacity-75 leading-relaxed">
+                Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.
+              </p>
+              <button className="bg-accent hover:bg-secondary text-white font-bold py-4 px-8 tracking-[1px] text-sm lg:text-lg transition">
+                SEE PRODUCT
+              </button>
             </div>
           </div>
-        ))}
+        </div>
       </div>
-
-
     </section>
   );
 };
 
-export default HeroSlider;
+export default HeroSection;
