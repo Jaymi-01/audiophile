@@ -54,7 +54,7 @@ const HeroSlider = () => {
               />
             </div>
 
-            <div className="max-w-7xl mx-auto font-texts px-6 lg:px-24 h-full flex items-center relative z-10">
+            <div className="max-w-7xl mx-auto bg-header px-6 lg:px-24 h-full flex items-center relative z-10">
               <div className="grid lg:grid-cols-2 gap-8 items-center w-full">
                 <div className="text-center lg:text-left">
                   <p className="text-white text-sm lg:text-md font-normal tracking-[10px] mb-4 lg:mb-6 opacity-50">
