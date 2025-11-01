@@ -6,7 +6,6 @@ const Footer = () => {
     <section className="py-24 lg:py-24">
       <div className="max-w-6xl pl-6 pr-6 lg:pr-0 lg:pl-24">
         <div className="flex flex-col-reverse lg:flex-row-reverse items-center gap-10 lg:gap-16">
-          
           <div className="shrink-0 w-full lg:w-1/2 flex justify-center">
             <img
               src={Man}
@@ -16,7 +15,8 @@ const Footer = () => {
           </div>
           <div className="text-center lg:text-left w-full lg:w-1/2">
             <h2 className="text-[28px] md:text-4xl font-bold tracking-[1px] leading-normal mb-6 uppercase">
-              Bringing you the <span className="text-accent">best</span> audio gear
+              Bringing you the <span className="text-accent">best</span> audio
+              gear
             </h2>
             <p className="text-[15px] font-normal opacity-70 leading-[25px]">
               Located at the heart of New York City, Audiophile is the premier
@@ -28,7 +28,6 @@ const Footer = () => {
               audio equipment.
             </p>
           </div>
-
         </div>
       </div>
     </section>

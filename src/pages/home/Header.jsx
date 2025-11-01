@@ -1,23 +1,23 @@
-import React from 'react';
-import Headset1 from '../../images/home/mobile/image-header.jpg';
-import Headset2 from '../../images/home/desktop/image-hero.jpg';
+import React from "react";
+import Headset1 from "../../images/home/mobile/image-header.jpg";
+import Headset2 from "../../images/home/desktop/image-hero.jpg";
 
 const HeroSection = () => {
   return (
     <section className="bg-header text-white relative overflow-hidden">
       <div className="relative h-[500px] lg:h-[750px]">
-         <div className="lg:hidden absolute inset-0 -top-20">
-          <img 
-            src={Headset1} 
+        <div className="lg:hidden absolute inset-0 -top-20">
+          <img
+            src={Headset1}
             alt="XX99 MARK II HEADPHONES"
             className="w-full h-full object-cover object-[center_30%]"
           />
-         <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-black/40"></div>
         </div>
 
         <div className="hidden lg:block absolute inset-0">
-          <img 
-            src={Headset2} 
+          <img
+            src={Headset2}
             alt="XX99 MARK II HEADPHONES"
             className="w-full h-full object-cover scale-110"
           />
@@ -34,7 +34,8 @@ const HeroSection = () => {
                 XX99 MARK II HEADPHONES
               </h1>
               <p className="text-white mb-8 lg:mb-10 max-w-md font-normal mx-auto lg:mx-0 text-sm lg:text-base opacity-75 leading-relaxed">
-                Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.
+                Experience natural, lifelike audio and exceptional build quality
+                made for the passionate music enthusiast.
               </p>
               <button className="bg-accent hover:bg-secondary text-white font-bold py-4 px-8 tracking-[1px] text-sm lg:text-lg transition">
                 SEE PRODUCT

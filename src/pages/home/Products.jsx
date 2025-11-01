@@ -1,22 +1,20 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 import Speakers from "../../images/product-zx9-speaker/mobile/image-product.png";
 import InnerCircle from "../../images/Oval.png";
 import OuterCircle from "../../images/Oval Copy.png";
-import MobileSpeakerImage from '../../images/home/mobile/image-speaker-zx7.jpg';
-import DesktopSpeakerImage from '../../images/home/desktop/image-speaker-zx7.jpg';
-import MobileEarphone from '../../images/home/mobile/image-earphones-yx1.jpg';
+import MobileSpeakerImage from "../../images/home/mobile/image-speaker-zx7.jpg";
+import DesktopSpeakerImage from "../../images/home/desktop/image-speaker-zx7.jpg";
+import MobileEarphone from "../../images/home/mobile/image-earphones-yx1.jpg";
 // import DesktopEarphone from '../../images/zx7-speaker/desktop/image-earphones-yx1.jpg';
 
 const Products = () => {
   return (
     <section className="pt-24 lg:pt-32 relative overflow-hidden">
       <div className="max-w-6xl pl-6 pr-6 lg:pr-0 lg:pl-24">
-
         {/* ZX9 Speaker Section */}
         {/* Desktop layout */}
         <div className="hidden lg:flex items-end justify-between gap-8 bg-accent rounded-lg overflow-hidden relative px-16 h-[420px]">
-          
           <div className="relative z-10 self-end">
             <img
               src={Speakers}
@@ -30,7 +28,8 @@ const Products = () => {
               ZX9 SPEAKER
             </h3>
             <p className="text-white/80 mb-8 leading-relaxed text-lg">
-              Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
+              Upgrade to premium speakers that are phenomenally built to deliver
+              truly remarkable sound.
             </p>
             <Link
               to="/speakers/zx9"
@@ -43,7 +42,6 @@ const Products = () => {
 
         {/* Mobile layout */}
         <div className="relative bg-accent rounded-lg text-center py-20 px-6 lg:hidden overflow-hidden">
-          
           <img
             src={OuterCircle}
             alt="Outer Circle"
@@ -63,9 +61,12 @@ const Products = () => {
           </div>
 
           <div className="relative z-30 text-white tracking-[1.286px] leading-10">
-            <h3 className="font-bold text-4xl mb-3 px-8 items-center">ZX9 SPEAKER</h3>
+            <h3 className="font-bold text-4xl mb-3 px-8 items-center">
+              ZX9 SPEAKER
+            </h3>
             <p className="text-white/75 text-sm mb-6 font-normal leading-[25px]">
-              Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
+              Upgrade to premium speakers that are phenomenally built to deliver
+              truly remarkable sound.
             </p>
             <Link
               to="/speakers/zx9"
@@ -101,7 +102,7 @@ const Products = () => {
               <h2 className="text-2xl lg:text-4xl font-bold tracking-wider mb-6 lg:mb-8">
                 ZX7 SPEAKER
               </h2>
-              
+
               <Link
                 to="/speakers/zx7"
                 className="inline-block border-2 border-black bg-transparent hover:bg-black hover:text-white text-black font-bold py-3 px-8 tracking-wider text-sm transition-all duration-300"
@@ -114,7 +115,6 @@ const Products = () => {
 
         {/* YX1 Earphones Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mt-12 lg:mt-16">
-          
           <div className="rounded-lg overflow-hidden h-52 lg:h-80">
             <img
               src={MobileEarphone}
@@ -128,7 +128,7 @@ const Products = () => {
               <h2 className="text-2xl lg:text-4xl font-bold tracking-wider mb-6 lg:mb-8">
                 YX1 EARPHONES
               </h2>
-              
+
               <Link
                 to="/earphones/yx1"
                 className="inline-block border-2 border-black bg-transparent hover:bg-black hover:text-white text-black font-bold py-3 px-8 tracking-wider text-sm transition-all duration-300"
@@ -138,7 +138,6 @@ const Products = () => {
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );
