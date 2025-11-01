@@ -4,7 +4,7 @@ import Man from "../../images/man.png";
 const Footer = () => {
   return (
     <section className="py-24 lg:py-24">
-      <div className="max-w-6xl pl-6 pr-6 lg:pr-0 lg:pl-24">
+      <div className="max-w-6xl mx-auto px-6 lg:px-24">
         <div className="flex flex-col-reverse lg:flex-row-reverse items-center gap-10 lg:gap-16">
           <div className="shrink-0 w-full lg:w-1/2 flex justify-center">
             <img
