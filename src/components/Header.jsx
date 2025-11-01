@@ -6,10 +6,6 @@ import Logo from "../assets/logo.svg";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // const linkBase =
-  //   "text-white text-sm tracking-widest transition hover:text-accent";
-  // const linkActive = "text-accent";
-
   return (
     <>
       <header className="fixed top-0 left-0 w-full font-texts bg-primary shadow-lg z-50">
@@ -23,13 +19,7 @@ const Header = () => {
               {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
             </button>
 
-            <div
-              className="
-                lg:static 
-                absolute left-1/2 transform -translate-x-1/2
-                lg:left-1
-              "
-            >
+            <div className="lg:relative lg:left-0 absolute left-1/2 transform -translate-x-1/2 lg:translate-x-0">
               <img src={Logo} alt="Audiophile Logo" />
             </div>
 
