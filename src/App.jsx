@@ -6,7 +6,7 @@ import Home from './pages/home/Index.jsx';
 const App = () => {
   return (
     <Router>
-      <div>
+      <div className='font-texts'>
       <Header />
       <Routes>
           <Route path="/" element={<Home />} />
