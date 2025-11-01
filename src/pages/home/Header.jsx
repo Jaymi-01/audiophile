@@ -21,10 +21,10 @@ const HeroSection = () => {
             alt="XX99 MARK II HEADPHONES"
             className="w-full h-full object-cover scale-110"
           />
-          <div className="absolute inset-0 bg-linear-to-r from-black/60 via-black/30 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div>
         </div>
 
-        <div className="max-w-6xl mx-auto  h-full flex items-center relative z-10">
+        <div className="max-w-6xl mx-auto px-6 lg:px-24 h-full flex items-center relative z-10">
           <div className="w-full lg:max-w-lg">
             <div className="text-center lg:text-left">
               <p className="text-white text-sm lg:text-md font-normal tracking-[10px] mb-4 lg:mb-6 opacity-50">
