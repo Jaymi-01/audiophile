@@ -6,9 +6,9 @@ import Logo from "../assets/logo.svg";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const linkBase =
-    "text-white text-sm tracking-widest transition hover:text-accent";
-  const linkActive = "text-accent";
+  // const linkBase =
+  //   "text-white text-sm tracking-widest transition hover:text-accent";
+  // const linkActive = "text-accent";
 
   return (
     <>
@@ -25,10 +25,9 @@ const Header = () => {
 
             <div
               className="
-                tracking-wider
-                lg:static lg:transform-none
+                lg:static 
                 absolute left-1/2 transform -translate-x-1/2
-                lg:left-0
+                lg:left-1
               "
             >
               <img src={Logo} alt="Audiophile Logo" />
@@ -38,32 +37,36 @@ const Header = () => {
             <nav className="hidden lg:flex space-x-8 font-texts text-sm absolute left-1/2 transform -translate-x-1/2">
               <NavLink
                 to="/"
+                end
                 className={({ isActive }) =>
-                  `${linkBase} ${isActive ? linkActive : ""}`
+                  `${isActive ? "text-accent" : "text-white"} text-sm tracking-widest transition hover:text-accent`
                 }
               >
                 HOME
               </NavLink>
+
               <NavLink
                 to="/headphones"
                 className={({ isActive }) =>
-                  `${linkBase} ${isActive ? linkActive : ""}`
+                  `${isActive ? "text-accent" : "text-white"} text-sm tracking-widest transition hover:text-accent`
                 }
               >
                 HEADPHONES
               </NavLink>
+
               <NavLink
                 to="/speakers"
                 className={({ isActive }) =>
-                  `${linkBase} ${isActive ? linkActive : ""}`
+                  `${isActive ? "text-accent" : "text-white"} text-sm tracking-widest transition hover:text-accent`
                 }
               >
                 SPEAKERS
               </NavLink>
+
               <NavLink
                 to="/earphones"
                 className={({ isActive }) =>
-                  `${linkBase} ${isActive ? linkActive : ""}`
+                  `${isActive ? "text-accent" : "text-white"} text-sm tracking-widest transition hover:text-accent`
                 }
               >
                 EARPHONES
@@ -91,6 +94,7 @@ const Header = () => {
         <nav className="flex flex-col w-full text-center py-8 space-y-6">
           <NavLink
             to="/"
+            end
             onClick={() => setIsMenuOpen(false)}
             className={({ isActive }) =>
               `text-white font-bold text-lg tracking-widest transition hover:text-accent ${
