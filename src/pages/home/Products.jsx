@@ -11,7 +11,7 @@ import MobileEarphone from "../../images/home/mobile/image-earphones-yx1.jpg";
 const Products = () => {
   return (
     <section className="pt-24 lg:pt-32 relative overflow-hidden">
-      <div className="max-w-6xl pl-6 pr-6 lg:pr-0 lg:pl-24">
+      <div className="max-w-6xl mx-auto px-6 lg:px-24">
         {/* ZX9 Speaker Section */}
         {/* Desktop layout */}
         <div className="hidden lg:flex items-end justify-between gap-8 bg-accent rounded-lg overflow-hidden relative px-16 h-[420px]">
