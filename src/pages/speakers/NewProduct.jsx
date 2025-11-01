@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Headphones1 from "../../images/product-zx9-speaker/mobile/image-category-page-preview.jpg";
-import Headphones2 from "../../images/product-zx7-speaker/desktop/image-category-page-preview.jpg";
+import Speaker1 from "../../images/product-zx9-speaker/mobile/image-category-page-preview.jpg";
+import Speaker2 from "../../images/product-zx7-speaker/desktop/image-category-page-preview.jpg";
 
 const NewProduct = () => {
   const products = [
     {
       id: 1,
-      image: Headphones1,
+      image: Speaker1,
       label: "NEW PRODUCT",
       title: "ZX9 SPEAKERS",
       description: "Upgrade your sound system with the all new ZX9 active speaker. It’s a bookshelf speaker system that offers truly wireless connectivity -- creating new possibilities for more pleasing and practical audio setups.",
@@ -15,7 +15,7 @@ const NewProduct = () => {
     },
     {
       id: 2,
-      image: Headphones2,
+      image: Speaker2,
       label: "NEW PRODUCT",
       title: "ZX7 SPEAKER",
       description: "Stream high quality sound wirelessly with minimal loss. The ZX7 bookshelf speaker uses high-end audiophile components that represents the top of the line powered speakers for home or studio use.",
