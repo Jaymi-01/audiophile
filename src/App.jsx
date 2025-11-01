@@ -8,7 +8,7 @@ const App = () => {
     <Router>
       <div className='font-texts'>
       <Header />
-      <Routes>
+      <Routes className='bg-background'>
           <Route path="/" element={<Home />} />
           {/* <Route path="/about" element={<About />} />
           <Route path="/pricing" element={<Pricing />} />
