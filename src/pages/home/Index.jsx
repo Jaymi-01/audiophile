@@ -1,14 +1,13 @@
 import React from 'react'
 import Header from './Header.jsx'
-// import About from './About.jsx'
-// import Team from './Team.jsx'
+import Gadgets from './Gadgets.jsx'
 
 const Index = () => {
   return (
-    <div>
+    <div className='bg-background'>
         <Header />
-        {/* <About />
-        <Team /> */}
+        <Gadgets />
+      
     </div>
   )
 }
