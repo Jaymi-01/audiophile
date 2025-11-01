@@ -29,7 +29,7 @@ const Gadgets = () => {
 
   return (
     <section className="pt-24 lg:pt-24">
-      <div className="max-w-6xl pl-6 pr-6 lg:pr-0 lg:pl-24">
+      <div className="max-w-6xl mx-auto px-6 lg:px-24">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-20 lg:gap-8">
           {categories.map((category) => (
             <Link
