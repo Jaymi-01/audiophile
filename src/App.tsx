@@ -11,6 +11,7 @@ import XX99MarkI from "./pages/headphones/XX99MarkI";
 import XX59 from "./pages/headphones/XX59";
 import ZX9Speaker from "./pages/speakers/ZX9Speaker";
 import ZX7Speaker from "./pages/speakers/ZX7Speaker";
+import YX1 from "./pages/earphones/YX1";
 
 const App: React.FC = () => {
   const cartCount = 3;
@@ -30,6 +31,7 @@ const App: React.FC = () => {
             <Route path="/headphones/xx59" element={<XX59 />} />
             <Route path="/speakers/zx9" element={<ZX9Speaker />} />
             <Route path="/speakers/zx7" element={<ZX7Speaker />} />
+            <Route path="/earphones/yx1" element={<YX1 />} />
           </Routes>
         </div>
       </div>
