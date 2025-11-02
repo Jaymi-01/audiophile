@@ -7,11 +7,14 @@ import Speakers from './pages/speakers/Index.jsx'
 import Earphones from './pages/earphones/Index.jsx'
 import XX99MarkII from './pages/headphones/XX99MarkII.jsx'
 
-const App = () => {
+
+
+const App: React.FC = () => {
+  const cartCount = 3;
   return (
     <Router>
       <div className='font-texts'>
-      <Header />
+      <Header cartCount={cartCount} />
       <Routes className='bg-background app'>
           <Route path="/" element={<Home />} />
           <Route path='/headphones' element={<Headphones/>} />
