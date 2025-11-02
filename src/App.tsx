@@ -5,6 +5,7 @@ import Home from './pages/home/Index.jsx';
 import Headphones from './pages/headphones/Index.jsx'
 import Speakers from './pages/speakers/Index.jsx'
 import Earphones from './pages/earphones/Index.jsx'
+import XX99MarkII from './pages/headphones/XX99MarkII.jsx'
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path='/headphones' element={<Headphones/>} />
           <Route path='/speakers' element={<Speakers />} />
           <Route path='/earphones' element={<Earphones />} />
+          <Route path='/headphones/xx99-mark-ii' element={<XX99MarkII />} />
         </Routes>
     </div>
     </Router>
