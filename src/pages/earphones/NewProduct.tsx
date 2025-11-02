@@ -2,16 +2,26 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Earphones from "../../images/product-yx1-earphones/mobile/image-category-page-preview.jpg";
 
-const NewProduct = () => {
-  const products = [
+interface Product {
+  id: number;
+  image: string;
+  label?: string;
+  title: string;
+  description: string;
+  link: string;
+}
+
+const NewProduct: React.FC = () => {
+  const products: Product[] = [
     {
       id: 1,
       image: Earphones,
       label: "NEW PRODUCT",
       title: "YX1 WIRELESS EARPHONES",
-      description: "Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature.",
-      link: "/earphones/yx1"
-    }
+      description:
+        "Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature.",
+      link: "/earphones/yx1",
+    },
   ];
 
   return (
@@ -19,21 +29,22 @@ const NewProduct = () => {
       <div className="max-w-6xl mx-auto px-6 lg:px-24">
         <div className="space-y-24 lg:space-y-32">
           {products.map((product, index) => (
-            <div 
+            <div
               key={product.id}
               className={`flex flex-col ${
-                index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
+                index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
               } gap-8 lg:gap-16 items-center`}
             >
               <div className="w-full lg:w-1/2">
                 <div className="bg-lightGray rounded-lg p-8 lg:p-16 flex items-center justify-center overflow-hidden">
-                  <img 
-                    src={product.image} 
+                  <img
+                    src={product.image}
                     alt={product.title}
                     className="w-full h-auto max-w-sm object-contain"
                   />
                 </div>
               </div>
+
               <div className="w-full lg:w-1/2 flex items-center">
                 <div className="text-center lg:text-left w-full">
                   {product.label && (
