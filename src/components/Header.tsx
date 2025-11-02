@@ -3,7 +3,11 @@ import { NavLink } from "react-router-dom";
 import { FiShoppingCart, FiMenu, FiX } from "react-icons/fi";
 import Logo from "../assets/logo.svg";
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  cartCount?: number; 
+}
+
+const Header: React.FC<HeaderProps> = ({ cartCount = 0 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   return (
@@ -20,6 +24,7 @@ const Header: React.FC = () => {
               {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
             </button>
 
+            {/* Logo */}
             <div className="lg:relative lg:left-0 absolute left-1/2 transform -translate-x-1/2 lg:translate-x-0">
               <img src={Logo} alt="Audiophile Logo" />
             </div>
@@ -47,11 +52,17 @@ const Header: React.FC = () => {
               ))}
             </nav>
 
+            {/* Cart Icon */}
             <button
-              className="text-white ml-auto lg:ml-0"
+              className="relative text-white ml-auto lg:ml-0"
               aria-label="Shopping cart"
             >
               <FiShoppingCart size={24} />
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-accent text-white text-xs font-bold rounded-full px-1.5 py-0.5">
+                  {cartCount}
+                </span>
+              )}
             </button>
           </div>
         </div>
