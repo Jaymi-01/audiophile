@@ -1,6 +1,7 @@
 import React from "react";
 import Headset1 from "../../images/home/mobile/image-header.jpg";
 import Headset2 from "../../images/home/desktop/image-hero.jpg";
+import { Link } from "react-router-dom";
 
 const HeroSection: React.FC = () => {
   return (
@@ -43,9 +44,9 @@ const HeroSection: React.FC = () => {
                 made for the passionate music enthusiast.
               </p>
 
-              <button className="bg-accent hover:bg-secondary text-white font-bold py-4 px-8 tracking-[1px] text-sm lg:text-lg transition">
+              <Link to="headphones/xx99-mark-ii" className="bg-accent hover:bg-secondary text-white font-bold py-4 px-8 tracking-[1px] text-sm lg:text-lg transition">
                 SEE PRODUCT
-              </button>
+              </Link>
             </div>
           </div>
         </div>
