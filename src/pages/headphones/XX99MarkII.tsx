@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FiPlus, FiMinus } from "react-icons/fi";
 import Headphones1 from "../../images/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg";
+import Headphones2 from "../../images/product-xx99-mark-one-headphones/mobile/image-category-page-preview.png";
+import Headphones3 from "../../images/product-xx59-headphones/mobile/image-category-page-preview.jpg";
+import Speaker from '../../images/product-zx9-speaker/mobile/image-product.jpg'
 import ManMobile from "../../images/product-xx99-mark-two-headphones/mobile/image-gallery-1.jpg";
 import Image1Mobile from "../../images/product-xx99-mark-two-headphones/mobile/image-gallery-2.jpg";
 import Image2Mobile from "../../images/product-xx99-mark-two-headphones/mobile/image-gallery-3.jpg";
@@ -78,7 +81,7 @@ const XX99MarkII: React.FC = () => {
             </div>
 
             <div className="w-full lg:w-1/2 flex items-center">
-              <div className="text-center lg:text-left w-full">
+              <div className="text-left lg:text-center w-full">
                 {product.label && (
                   <h2 className="text-accent text-sm font-normal tracking-[10px] mb-4 lg:mb-6">
                     {product.label}
@@ -180,6 +183,71 @@ const XX99MarkII: React.FC = () => {
                 src={galleryImages[2]}
                 alt="Gallery 3"
               />
+            </div>
+          </div>
+        </div>
+
+        <div className="py-24 lg:py-32">
+          <h2 className="text-center text-2xl md:text-3xl font-bold tracking-wide mb-12">
+            YOU MAY ALSO LIKE
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+            <div className="flex flex-col items-center">
+              <div className="bg-lightGray rounded-lg flex items-center justify-center w-full aspect-square overflow-hidden">
+                <img
+                  src={Headphones2}
+                  alt="XX99 Mark I"
+                  className="w-4/5 h-auto object-contain"
+                />
+              </div>
+              <h3 className="text-lg font-bold tracking-wide mt-6 mb-4">
+                XX99 MARK I
+              </h3>
+              <Link
+                to="/xx99mark1"
+                className="inline-block bg-accent text-white py-3 px-8 rounded-lg hover:bg-secondary transition-colors font-bold tracking-wider text-sm"
+              >
+                SEE PRODUCT
+              </Link>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="bg-lightGray rounded-lg flex items-center justify-center w-full aspect-square overflow-hidden">
+                <img
+                  src={Headphones3}
+                  alt="XX59"
+                  className="w-4/5 h-auto object-contain"
+                />
+              </div>
+              <h3 className="text-lg font-bold tracking-wide mt-6 mb-4">
+                XX59
+              </h3>
+              <Link
+                to="/xx59"
+                className="inline-block bg-accent text-white py-3 px-8 rounded-lg hover:bg-secondary transition-colors font-bold tracking-wider text-sm"
+              >
+                SEE PRODUCT
+              </Link>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="bg-lightGray rounded-lg flex items-center justify-center w-full aspect-square overflow-hidden">
+                <img
+                  src={Speaker}
+                  alt="ZX9 Speaker"
+                  className="w-4/5 h-auto object-contain"
+                />
+              </div>
+              <h3 className="text-lg font-bold tracking-wide mt-6 mb-4">
+                ZX9 SPEAKER
+              </h3>
+              <Link
+                to="/speaker/zx9speaker"
+                className="inline-block bg-accent text-white py-3 px-8 rounded-lg hover:bg-secondary transition-colors font-bold tracking-wider text-sm"
+              >
+                SEE PRODUCT
+              </Link>
             </div>
           </div>
         </div>
