@@ -149,11 +149,11 @@ const XX99MarkII: React.FC = () => {
               <h2 className="text-3xl font-bold text-black mb-6">IN THE BOX</h2>
               <ul className="list-none space-y-2">
                 {[
-                  ["2X", "Speaker Unit"],
-                  ["2X", "Speaker Cloth Panel"],
+                  ["1X", "Headphone Unit"],
+                  ["2X", "Replacement Earcups"],
                   ["1X", "User Manual"],
-                  ["1X", "3.5mm 7.5m Audio Cable"],
-                  ["1X", "7.5m Optical Cable"],
+                  ["1X", "3.5mm 5m Audio Cable"],
+                  ["1X", "Travel Bag"],
                 ].map(([count, item]) => (
                   <li key={item} className="opacity-50 leading-[25px]">
                     <span className="font-bold mr-5 text-accent">{count}</span>
@@ -207,7 +207,7 @@ const XX99MarkII: React.FC = () => {
                 XX99 MARK I
               </h3>
               <Link
-                to="/xx99mark1"
+                to="/headphones/xx99-mark-i"
                 className="inline-block bg-accent text-white py-3 px-8 rounded-lg hover:bg-secondary transition-colors font-bold tracking-wider text-sm"
               >
                 SEE PRODUCT
@@ -226,7 +226,7 @@ const XX99MarkII: React.FC = () => {
                 XX59
               </h3>
               <Link
-                to="/xx59"
+                to="/headphones/xx59"
                 className="inline-block bg-accent text-white py-3 px-8 rounded-lg hover:bg-secondary transition-colors font-bold tracking-wider text-sm"
               >
                 SEE PRODUCT
