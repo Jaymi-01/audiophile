@@ -4,13 +4,15 @@ import { FiPlus, FiMinus } from "react-icons/fi";
 import Headphones1 from "../../images/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg";
 import Headphones2 from "../../images/product-xx99-mark-one-headphones/mobile/image-category-page-preview.png";
 import Headphones3 from "../../images/product-xx59-headphones/mobile/image-category-page-preview.jpg";
-import Speaker from '../../images/product-zx9-speaker/mobile/image-product.jpg'
+import Speaker from "../../images/product-zx9-speaker/mobile/image-product.jpg";
 import ManMobile from "../../images/product-xx99-mark-two-headphones/mobile/image-gallery-1.jpg";
 import Image1Mobile from "../../images/product-xx99-mark-two-headphones/mobile/image-gallery-2.jpg";
 import Image2Mobile from "../../images/product-xx99-mark-two-headphones/mobile/image-gallery-3.jpg";
 import ManDesktop from "../../images/product-xx99-mark-two-headphones/desktop/image-gallery-1.jpg";
 import Image1Desktop from "../../images/product-xx99-mark-two-headphones/desktop/image-gallery-2.jpg";
 import Image2Desktop from "../../images/product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg";
+import Footer from "../home/Footer";
+import Gadgets from "../home/Gadgets";
 
 interface Product {
   id: number;
@@ -252,6 +254,8 @@ const XX99MarkII: React.FC = () => {
           </div>
         </div>
       </div>
+      <Gadgets /> 
+      <Footer />
     </section>
   );
 };
