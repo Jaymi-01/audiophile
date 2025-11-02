@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FiPlus, FiMinus } from "react-icons/fi";
 import Headphones1 from "../../images/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg";
+import ManMobile from "../../images/product-xx99-mark-two-headphones/mobile/image-gallery-1.jpg";
+import Image1Mobile from "../../images/product-xx99-mark-two-headphones/mobile/image-gallery-2.jpg";
+import Image2Mobile from "../../images/product-xx99-mark-two-headphones/mobile/image-gallery-3.jpg";
+import ManDesktop from "../../images/product-xx99-mark-two-headphones/desktop/image-gallery-1.jpg";
+import Image1Desktop from "../../images/product-xx99-mark-two-headphones/desktop/image-gallery-2.jpg";
+import Image2Desktop from "../../images/product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg";
 
-// Define product type
 interface Product {
   id: number;
   image: string;
@@ -17,6 +22,9 @@ interface Product {
 const XX99MarkII: React.FC = () => {
   const navigate = useNavigate();
   const [quantity, setQuantity] = useState<number>(1);
+  const [isDesktop, setIsDesktop] = useState<boolean>(
+    window.innerWidth >= 1024
+  );
 
   const product: Product = {
     id: 1,
@@ -26,8 +34,14 @@ const XX99MarkII: React.FC = () => {
     description:
       "The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.",
     amount: "$ 2,999",
-    link: "/cart/cart.jsx", 
+    link: "/cart/cart.jsx",
   };
+
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleIncrease = () => setQuantity((prev) => prev + 1);
   const handleDecrease = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
@@ -36,6 +50,10 @@ const XX99MarkII: React.FC = () => {
     if (window.history.state?.idx > 0) navigate(-1);
     else navigate("/");
   };
+
+  const galleryImages = isDesktop
+    ? [ManDesktop, Image1Desktop, Image2Desktop]
+    : [ManMobile, Image1Mobile, Image2Mobile];
 
   return (
     <section className="py-24 lg:py-32">
@@ -81,7 +99,6 @@ const XX99MarkII: React.FC = () => {
                     <button
                       onClick={handleDecrease}
                       className="text-black/60 hover:text-accent transition"
-                      aria-label="Decrease quantity"
                     >
                       <FiMinus size={18} />
                     </button>
@@ -89,7 +106,6 @@ const XX99MarkII: React.FC = () => {
                     <button
                       onClick={handleIncrease}
                       className="text-black/60 hover:text-accent transition"
-                      aria-label="Increase quantity"
                     >
                       <FiPlus size={18} />
                     </button>
@@ -111,22 +127,16 @@ const XX99MarkII: React.FC = () => {
           <div className="flex flex-col md:flex-row gap-8 md:gap-16">
             <div className="flex-1">
               <h2 className="text-3xl font-bold text-black mb-6">FEATURES</h2>
-              <p className="text-black/50 text-[15px] font-normal leading-[25px] mb-6">
+              <p className="text-black/50 text-[15px] leading-[25px] mb-6">
                 Connect via Bluetooth or nearly any wired source. This speaker
                 features optical, digital coaxial, USB Type-B, stereo RCA, and
                 stereo XLR inputs, allowing you to have up to five wired source
-                devices connected for easy switching. Improved bluetooth
-                technology offers near lossless audio quality at up to 328ft
-                (100m).
+                devices connected for easy switching.
               </p>
-              <p className="text-black/50 text-[15px] font-normal leading-[25px]">
+              <p className="text-black/50 text-[15px] leading-[25px]">
                 Discover clear, more natural sounding highs than the competition
-                with ZX9’s signature planar diaphragm tweeter. Equally important
-                is its powerful room-shaking bass courtesy of a 6.5” aluminum
-                alloy bass unit. You’ll be able to enjoy equal sound quality
-                whether in a large room or small den. Furthermore, you will
-                experience new sensations from old songs since it can respond to
-                even the subtle waveforms.
+                with ZX9’s signature planar diaphragm tweeter. Furthermore, its
+                powerful 6.5” bass unit ensures immersive sound quality.
               </p>
             </div>
 
@@ -140,10 +150,7 @@ const XX99MarkII: React.FC = () => {
                   ["1X", "3.5mm 7.5m Audio Cable"],
                   ["1X", "7.5m Optical Cable"],
                 ].map(([count, item]) => (
-                  <li
-                    key={item}
-                    className="opacity-50 font-normal leading-[25px]"
-                  >
+                  <li key={item} className="opacity-50 leading-[25px]">
                     <span className="font-bold mr-5 text-accent">{count}</span>
                     {item}
                   </li>
@@ -153,7 +160,29 @@ const XX99MarkII: React.FC = () => {
           </div>
         </div>
 
-        <div className="py-24 lg:py-32"></div>
+        <div className="space-y-24 lg:space-y-32">
+          <div className="flex flex-col lg:flex-row lg:flex-2 gap-5 lg:gap-8">
+            <div className="flex flex-col gap-5 lg:gap-8">
+              <img
+                className="rounded-lg"
+                src={galleryImages[0]}
+                alt="Gallery 1"
+              />
+              <img
+                className="rounded-lg"
+                src={galleryImages[1]}
+                alt="Gallery 2"
+              />
+            </div>
+            <div>
+              <img
+                className="rounded-lg"
+                src={galleryImages[2]}
+                alt="Gallery 3"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
