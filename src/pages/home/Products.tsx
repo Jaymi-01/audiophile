@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
+// Image imports
 import Speakers from "../../images/product-zx9-speaker/mobile/image-product.png";
 import InnerCircle from "../../images/Oval.png";
 import OuterCircle from "../../images/Oval Copy.png";
@@ -8,12 +10,12 @@ import DesktopSpeakerImage from "../../images/home/desktop/image-speaker-zx7.jpg
 import MobileEarphone from "../../images/home/mobile/image-earphones-yx1.jpg";
 // import DesktopEarphone from '../../images/zx7-speaker/desktop/image-earphones-yx1.jpg';
 
-const Products = () => {
+const Products: React.FC = () => {
   return (
     <section className="pt-24 lg:pt-32 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 lg:px-24">
-        {/* ZX9 Speaker Section */}
-        {/* Desktop layout */}
+        {/* ZX9 SPEAKER SECTION */}
+        {/* Desktop Layout */}
         <div className="hidden lg:flex items-end justify-between gap-8 bg-accent rounded-lg overflow-hidden relative px-16 h-[420px]">
           <div className="relative z-10 self-end">
             <img
@@ -40,7 +42,7 @@ const Products = () => {
           </div>
         </div>
 
-        {/* Mobile layout */}
+        {/* Mobile Layout */}
         <div className="relative bg-accent rounded-lg text-center py-20 px-6 lg:hidden overflow-hidden">
           <img
             src={OuterCircle}
@@ -77,9 +79,9 @@ const Products = () => {
           </div>
         </div>
 
-        {/* ZX7 Speaker Section */}
+        {/* ZX7 SPEAKER SECTION */}
         <div className="relative rounded-lg overflow-hidden h-80 lg:h-96 mt-12 lg:mt-16">
-          {/* Mobile Background Image */}
+          {/* Mobile Background */}
           <div className="lg:hidden absolute inset-0">
             <img
               src={MobileSpeakerImage}
@@ -88,7 +90,6 @@ const Products = () => {
             />
           </div>
 
-          {/* Desktop Background Image */}
           <div className="hidden lg:block absolute inset-0">
             <img
               src={DesktopSpeakerImage}
@@ -113,7 +114,7 @@ const Products = () => {
           </div>
         </div>
 
-        {/* YX1 Earphones Section */}
+        {/* YX1 EARPHONES SECTION */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mt-12 lg:mt-16">
           <div className="rounded-lg overflow-hidden h-52 lg:h-80">
             <img

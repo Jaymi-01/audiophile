@@ -5,8 +5,15 @@ import Headphones from "../../images/shared/desktop/image-category-thumbnail-hea
 import Speakers from "../../images/shared/desktop/image-category-thumbnail-speakers.png";
 import Earphones from "../../images/shared/desktop/image-category-thumbnail-earphones.png";
 
-const Gadgets = () => {
-  const categories = [
+interface Category {
+  id: number;
+  name: string;
+  image: string;
+  link: string;
+}
+
+const Gadgets: React.FC = () => {
+  const categories: Category[] = [
     {
       id: 1,
       name: "HEADPHONES",

@@ -4,7 +4,7 @@ import Gadgets from './Gadgets.jsx'
 import Products from './Products.jsx'
 import Footer from './Footer.jsx'
 
-const Index = () => {
+const Index: React.FC = () => {
   return (
     <div className='bg-background'>
         <Header />

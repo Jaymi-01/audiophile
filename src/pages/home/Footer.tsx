@@ -1,7 +1,7 @@
 import React from "react";
 import Man from "../../images/man.png";
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <section className="py-24 lg:py-24">
       <div className="max-w-6xl mx-auto px-6 lg:px-24">
@@ -13,6 +13,7 @@ const Footer = () => {
               className="w-full max-w-[400px] lg:max-w-[500px] h-auto object-contain rounded-lg"
             />
           </div>
+
           <div className="text-center lg:text-left w-full lg:w-1/2">
             <h2 className="text-[28px] md:text-4xl font-bold tracking-[1px] leading-normal mb-6 uppercase">
               Bringing you the <span className="text-accent">best</span> audio

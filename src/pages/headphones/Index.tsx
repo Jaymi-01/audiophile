@@ -4,7 +4,7 @@ import NewProduct from './NewProduct.jsx'
 import Gadgets from '../home/Gadgets.jsx'
 import Footer from '../home/Footer.jsx'
 
-const Index = () => {
+const Index: React.FC = () => {
   return (
     <div>
         <Header />

@@ -3,24 +3,35 @@ import { Link } from "react-router-dom";
 import Speaker1 from "../../images/product-zx9-speaker/mobile/image-category-page-preview.jpg";
 import Speaker2 from "../../images/product-zx7-speaker/desktop/image-category-page-preview.jpg";
 
-const NewProduct = () => {
-  const products = [
+interface Product {
+  id: number;
+  image: string;
+  label?: string;
+  title: string;
+  description: string;
+  link: string;
+}
+
+const NewProduct: React.FC = () => {
+  const products: Product[] = [
     {
       id: 1,
       image: Speaker1,
       label: "NEW PRODUCT",
       title: "ZX9 SPEAKERS",
-      description: "Upgrade your sound system with the all new ZX9 active speaker. It’s a bookshelf speaker system that offers truly wireless connectivity -- creating new possibilities for more pleasing and practical audio setups.",
-      link: "/speakers/zx9"
+      description:
+        "Upgrade your sound system with the all new ZX9 active speaker. It’s a bookshelf speaker system that offers truly wireless connectivity -- creating new possibilities for more pleasing and practical audio setups.",
+      link: "/speakers/zx9",
     },
     {
       id: 2,
       image: Speaker2,
       label: "NEW PRODUCT",
       title: "ZX7 SPEAKER",
-      description: "Stream high quality sound wirelessly with minimal loss. The ZX7 bookshelf speaker uses high-end audiophile components that represents the top of the line powered speakers for home or studio use.",
-      link: "/speakers/zx7"
-    }
+      description:
+        "Stream high quality sound wirelessly with minimal loss. The ZX7 bookshelf speaker uses high-end audiophile components that represents the top of the line powered speakers for home or studio use.",
+      link: "/speakers/zx7",
+    },
   ];
 
   return (
@@ -28,16 +39,16 @@ const NewProduct = () => {
       <div className="max-w-6xl mx-auto px-6 lg:px-24">
         <div className="space-y-24 lg:space-y-32">
           {products.map((product, index) => (
-            <div 
+            <div
               key={product.id}
               className={`flex flex-col ${
-                index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
+                index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
               } gap-8 lg:gap-16 items-center`}
             >
               <div className="w-full lg:w-1/2">
                 <div className="bg-lightGray rounded-lg p-8 lg:p-16 flex items-center justify-center overflow-hidden">
-                  <img 
-                    src={product.image} 
+                  <img
+                    src={product.image}
                     alt={product.title}
                     className="w-full h-auto max-w-sm object-contain"
                   />

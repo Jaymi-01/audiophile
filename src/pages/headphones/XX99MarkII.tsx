@@ -3,11 +3,22 @@ import { Link, useNavigate } from "react-router-dom";
 import { FiPlus, FiMinus } from "react-icons/fi";
 import Headphones1 from "../../images/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg";
 
-const XX99MarkII = () => {
-  const navigate = useNavigate();
-  const [quantity, setQuantity] = useState(1);
+// Define product type
+interface Product {
+  id: number;
+  image: string;
+  label?: string;
+  title: string;
+  description: string;
+  amount: string;
+  link: string;
+}
 
-  const product = {
+const XX99MarkII: React.FC = () => {
+  const navigate = useNavigate();
+  const [quantity, setQuantity] = useState<number>(1);
+
+  const product: Product = {
     id: 1,
     image: Headphones1,
     label: "NEW PRODUCT",
@@ -15,20 +26,22 @@ const XX99MarkII = () => {
     description:
       "The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.",
     amount: "$ 2,999",
-    link: "/cart/cart.jsx",
+    link: "/cart/cart.jsx", 
   };
 
   const handleIncrease = () => setQuantity((prev) => prev + 1);
   const handleDecrease = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
 
+  const handleGoBack = () => {
+    if (window.history.state?.idx > 0) navigate(-1);
+    else navigate("/");
+  };
+
   return (
     <section className="py-24 lg:py-32">
       <div className="max-w-6xl mx-auto px-6 lg:px-24">
         <button
-          onClick={() => {
-            if (window.history.state?.idx > 0) navigate(-1);
-            else navigate("/");
-          }}
+          onClick={handleGoBack}
           className="text-[15px] font-medium text-black/60 hover:text-accent transition pb-14"
         >
           Go Back
@@ -37,7 +50,7 @@ const XX99MarkII = () => {
         <div className="space-y-24 lg:space-y-32">
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center lg:items-stretch">
             <div className="w-full lg:w-1/2 flex items-stretch">
-              <div className="bg-lightGray rounded-lg flex items-center justify-center w-full h-[320px] sm:h-[400px] lg:h-[500px] overflow-hidden">
+              <div className="bg-lightGray rounded-lg flex items-center justify-center w-full h-80 sm:h-[400px] lg:h-[500px] overflow-hidden">
                 <img
                   src={product.image}
                   alt={product.title}
@@ -120,36 +133,27 @@ const XX99MarkII = () => {
             <div className="flex-1">
               <h2 className="text-3xl font-bold text-black mb-6">IN THE BOX</h2>
               <ul className="list-none space-y-2">
-                <li className="opacity-50 font-normal leading-[25px]">
-                  <span className="font-bold mr-5 text-accent">2X</span>Speaker
-                  Unit
-                </li>
-                <li className="opacity-50 font-normal leading-[25px]">
-                  <span className="font-bold mr-5 text-accent">2X</span>Speaker
-                  Cloth Panel
-                </li>
-                <li className="opacity-50 font-normal leading-[25px]">
-                  <span className="font-bold mr-5 text-accent">1X</span>User
-                  Manual
-                </li>
-                <li className="opacity-50 font-normal leading-[25px]">
-                  <span className="font-bold mr-5 text-accent">1X</span>3.5mm
-                  7.5m Audio Cable
-                </li>
-                <li className="opacity-50 font-normal leading-[25px]">
-                  <span className="font-bold mr-5 text-accent">1X</span>7.5m
-                  Optical Cable
-                </li>
+                {[
+                  ["2X", "Speaker Unit"],
+                  ["2X", "Speaker Cloth Panel"],
+                  ["1X", "User Manual"],
+                  ["1X", "3.5mm 7.5m Audio Cable"],
+                  ["1X", "7.5m Optical Cable"],
+                ].map(([count, item]) => (
+                  <li
+                    key={item}
+                    className="opacity-50 font-normal leading-[25px]"
+                  >
+                    <span className="font-bold mr-5 text-accent">{count}</span>
+                    {item}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
         </div>
+
         <div className="py-24 lg:py-32"></div>
-        <div className="flex flex-col md:flex-row gap-8 md:gap-16 md:flex-2">
-          <div>
-            <img src="" alt="" />
-          </div>
-        </div>
       </div>
     </section>
   );
