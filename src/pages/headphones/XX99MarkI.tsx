@@ -35,7 +35,7 @@ const XX99MarkI: React.FC = () => {
     id: 1,
     image: Headphones2,
     label: "NEW PRODUCT",
-    title: "XX99 Mark I Headphones",
+    title: "XX99 MARK I HEADPHONES",
     description:
       "As the gold standard for headphones, the classic XX99 Mark I offers detailed and accurate audio reproduction for audiophiles, mixing engineers, and music aficionados alike in studios and on the go.",
     amount: "$ 1,750",
@@ -211,7 +211,7 @@ const XX99MarkI: React.FC = () => {
                 XX99 MARK II
               </h3>
               <Link
-                to="/xx99mark2"
+                to="/headphones/xx99-mark-ii"
                 className="inline-block bg-accent text-white py-3 px-8 rounded-lg hover:bg-secondary transition-colors font-bold tracking-wider text-sm"
               >
                 SEE PRODUCT

@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FiPlus, FiMinus } from "react-icons/fi";
-import Headphones1 from "../../images/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg";
-import Headphones2 from "../../images/product-xx99-mark-one-headphones/mobile/image-category-page-preview.png";
-import Headphones3 from "../../images/product-xx59-headphones/mobile/image-category-page-preview.jpg";
+import Headphones1 from "../../images/product-xx59-headphones/desktop/image-category-page-preview.jpg";
+import Headphones2 from "../../images/product-yx1-earphones/mobile/image-category-page-preview.jpg";
+import Headphones3 from "../../images/product-xx99-mark-one-headphones/mobile/image-category-page-preview.jpg";
 import Speaker from "../../images/product-zx9-speaker/mobile/image-product.jpg";
-import ManMobile from "../../images/product-xx99-mark-two-headphones/mobile/image-gallery-1.jpg";
-import Image1Mobile from "../../images/product-xx99-mark-two-headphones/mobile/image-gallery-2.jpg";
-import Image2Mobile from "../../images/product-xx99-mark-two-headphones/mobile/image-gallery-3.jpg";
-import ManDesktop from "../../images/product-xx99-mark-two-headphones/desktop/image-gallery-1.jpg";
-import Image1Desktop from "../../images/product-xx99-mark-two-headphones/desktop/image-gallery-2.jpg";
-import Image2Desktop from "../../images/product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg";
+import ManMobile from "../../images/product-yx1-earphones/mobile/image-gallery-1.jpg";
+import Image1Mobile from "../../images/product-yx1-earphones/mobile/image-gallery-2.jpg";
+import Image2Mobile from "../../images/product-yx1-earphones/mobile/image-gallery-3.jpg";
+import ManDesktop from "../../images/product-yx1-earphones/desktop/image-gallery-1.jpg";
+import Image1Desktop from "../../images/product-yx1-earphones/desktop/image-gallery-2.jpg";
+import Image2Desktop from "../../images/product-yx1-earphones/desktop/image-gallery-3.jpg";
 import Footer from "../home/Footer";
 import Gadgets from "../home/Gadgets";
 
@@ -24,7 +24,7 @@ interface Product {
   link: string;
 }
 
-const XX99MarkII: React.FC = () => {
+const ZX9Speaker: React.FC = () => {
   const navigate = useNavigate();
   const [quantity, setQuantity] = useState<number>(1);
   const [isDesktop, setIsDesktop] = useState<boolean>(
@@ -33,12 +33,12 @@ const XX99MarkII: React.FC = () => {
 
   const product: Product = {
     id: 1,
-    image: Headphones1,
+    image: Headphones2,
     label: "NEW PRODUCT",
-    title: "XX99 MARK II HEADPHONES",
+    title: "YX1 WIRELESS EARPHONES",
     description:
-      "The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.",
-    amount: "$ 2,999",
+      "Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature.",
+    amount: "$ 599",
     link: "/cart/cart.jsx",
   };
 
@@ -133,15 +133,21 @@ const XX99MarkII: React.FC = () => {
             <div className="flex-1">
               <h2 className="text-3xl font-bold text-black mb-6">FEATURES</h2>
               <p className="text-black/50 text-[15px] leading-[25px] mb-6">
-                Connect via Bluetooth or nearly any wired source. This speaker
-                features optical, digital coaxial, USB Type-B, stereo RCA, and
-                stereo XLR inputs, allowing you to have up to five wired source
-                devices connected for easy switching.
+                Experience unrivalled stereo sound thanks to innovative acoustic
+                technology. With improved ergonomics designed for full day
+                wearing, these revolutionary earphones have been finely crafted
+                to provide you with the perfect fit, delivering complete comfort
+                all day long while enjoying exceptional noise isolation and
+                truly immersive sound.
               </p>
               <p className="text-black/50 text-[15px] leading-[25px]">
-                Discover clear, more natural sounding highs than the competition
-                with ZX9’s signature planar diaphragm tweeter. Furthermore, its
-                powerful 6.5” bass unit ensures immersive sound quality.
+                The YX1 Wireless Earphones features customizable controls for
+                volume, music, calls, and voice assistants built into both
+                earbuds. The new 7-hour battery life can be extended up to 28
+                hours with the charging case, giving you uninterrupted play
+                time. Exquisite craftsmanship with a splash resistant design now
+                available in an all new white and grey color scheme as well as
+                the popular classic black.
               </p>
             </div>
 
@@ -149,11 +155,11 @@ const XX99MarkII: React.FC = () => {
               <h2 className="text-3xl font-bold text-black mb-6">IN THE BOX</h2>
               <ul className="list-none space-y-2">
                 {[
-                  ["1X", "Headphone Unit"],
-                  ["2X", "Replacement Earcups"],
+                  ["2X", "Earphone Unit"],
+                  ["6X", "Multi-size Earplugs"],
                   ["1X", "User Manual"],
-                  ["1X", "3.5mm 5m Audio Cable"],
-                  ["1X", "Travel Bag"],
+                  ["1X", "USB-C Charging Cable"],
+                  ["1X", "Travel Pouch"],
                 ].map(([count, item]) => (
                   <li key={item} className="opacity-50 leading-[25px]">
                     <span className="font-bold mr-5 text-accent">{count}</span>
@@ -198,8 +204,8 @@ const XX99MarkII: React.FC = () => {
             <div className="flex flex-col items-center">
               <div className="bg-lightGray rounded-lg flex items-center justify-center w-full aspect-square overflow-hidden">
                 <img
-                  src={Headphones2}
-                  alt="XX99 Mark I"
+                  src={Headphones3}
+                  alt="XX99"
                   className="w-4/5 h-auto object-contain"
                 />
               </div>
@@ -217,7 +223,7 @@ const XX99MarkII: React.FC = () => {
             <div className="flex flex-col items-center">
               <div className="bg-lightGray rounded-lg flex items-center justify-center w-full aspect-square overflow-hidden">
                 <img
-                  src={Headphones3}
+                  src={Headphones1}
                   alt="XX59"
                   className="w-4/5 h-auto object-contain"
                 />
@@ -232,12 +238,11 @@ const XX99MarkII: React.FC = () => {
                 SEE PRODUCT
               </Link>
             </div>
-
             <div className="flex flex-col items-center">
               <div className="bg-lightGray rounded-lg flex items-center justify-center w-full aspect-square overflow-hidden">
                 <img
                   src={Speaker}
-                  alt="ZX9 Speaker"
+                  alt="ZX9 SPEAKER"
                   className="w-4/5 h-auto object-contain"
                 />
               </div>
@@ -254,10 +259,10 @@ const XX99MarkII: React.FC = () => {
           </div>
         </div>
       </div>
-      <Gadgets /> 
+      <Gadgets />
       <Footer />
     </section>
   );
 };
 
-export default XX99MarkII;
+export default ZX9Speaker;

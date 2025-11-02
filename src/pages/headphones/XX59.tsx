@@ -35,7 +35,7 @@ const XX59: React.FC = () => {
     id: 1,
     image: Headphones2,
     label: "NEW PRODUCT",
-    title: "XX59 Headphones",
+    title: "XX59 HEADPHONES",
     description:
       "Enjoy your audio almost anywhere and customize it to your specific tastes with the XX59 headphones. The stylish yet durable versatile wireless headset is a brilliant companion at home or on the move.",
     amount: "$ 899",
