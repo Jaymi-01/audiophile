@@ -3,16 +3,17 @@ import { NavLink } from "react-router-dom";
 import { FiShoppingCart, FiMenu, FiX } from "react-icons/fi";
 import Logo from "../assets/logo.svg";
 
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const Header: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   return (
     <>
       <header className="fixed top-0 left-0 w-full font-texts bg-primary shadow-lg z-50">
         <div className="max-w-6xl mx-auto px-6 lg:px-24">
           <div className="flex items-center justify-between h-20 lg:h-24 relative">
+            {/* Mobile Menu Toggle */}
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              onClick={() => setIsMenuOpen((prev) => !prev)}
               className="lg:hidden text-white z-50"
               aria-label="Toggle menu"
             >
@@ -25,42 +26,25 @@ const Header = () => {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex space-x-8 font-texts text-sm absolute left-1/2 transform -translate-x-1/2">
-              <NavLink
-                to="/"
-                end
-                className={({ isActive }) =>
-                  `${isActive ? "text-accent" : "text-white"} text-sm tracking-widest transition hover:text-accent`
-                }
-              >
-                HOME
-              </NavLink>
-
-              <NavLink
-                to="/headphones"
-                className={({ isActive }) =>
-                  `${isActive ? "text-accent" : "text-white"} text-sm tracking-widest transition hover:text-accent`
-                }
-              >
-                HEADPHONES
-              </NavLink>
-
-              <NavLink
-                to="/speakers"
-                className={({ isActive }) =>
-                  `${isActive ? "text-accent" : "text-white"} text-sm tracking-widest transition hover:text-accent`
-                }
-              >
-                SPEAKERS
-              </NavLink>
-
-              <NavLink
-                to="/earphones"
-                className={({ isActive }) =>
-                  `${isActive ? "text-accent" : "text-white"} text-sm tracking-widest transition hover:text-accent`
-                }
-              >
-                EARPHONES
-              </NavLink>
+              {[
+                { to: "/", label: "HOME" },
+                { to: "/headphones", label: "HEADPHONES" },
+                { to: "/speakers", label: "SPEAKERS" },
+                { to: "/earphones", label: "EARPHONES" },
+              ].map(({ to, label }) => (
+                <NavLink
+                  key={label}
+                  to={to}
+                  end={to === "/"}
+                  className={({ isActive }) =>
+                    `${
+                      isActive ? "text-accent" : "text-white"
+                    } text-sm tracking-widest transition hover:text-accent`
+                  }
+                >
+                  {label}
+                </NavLink>
+              ))}
             </nav>
 
             <button
@@ -82,55 +66,29 @@ const Header = () => {
         }`}
       >
         <nav className="flex flex-col w-full text-center py-8 space-y-6">
-          <NavLink
-            to="/"
-            end
-            onClick={() => setIsMenuOpen(false)}
-            className={({ isActive }) =>
-              `text-white font-bold text-lg tracking-widest transition hover:text-accent ${
-                isActive ? "text-accent" : ""
-              }`
-            }
-          >
-            HOME
-          </NavLink>
-          <NavLink
-            to="/headphones"
-            onClick={() => setIsMenuOpen(false)}
-            className={({ isActive }) =>
-              `text-white font-bold text-lg tracking-widest transition hover:text-accent ${
-                isActive ? "text-accent" : ""
-              }`
-            }
-          >
-            HEADPHONES
-          </NavLink>
-          <NavLink
-            to="/speakers"
-            onClick={() => setIsMenuOpen(false)}
-            className={({ isActive }) =>
-              `text-white font-bold text-lg tracking-widest transition hover:text-accent ${
-                isActive ? "text-accent" : ""
-              }`
-            }
-          >
-            SPEAKERS
-          </NavLink>
-          <NavLink
-            to="/earphones"
-            onClick={() => setIsMenuOpen(false)}
-            className={({ isActive }) =>
-              `text-white font-bold text-lg tracking-widest transition hover:text-accent ${
-                isActive ? "text-accent" : ""
-              }`
-            }
-          >
-            EARPHONES
-          </NavLink>
+          {[
+            { to: "/", label: "HOME" },
+            { to: "/headphones", label: "HEADPHONES" },
+            { to: "/speakers", label: "SPEAKERS" },
+            { to: "/earphones", label: "EARPHONES" },
+          ].map(({ to, label }) => (
+            <NavLink
+              key={label}
+              to={to}
+              end={to === "/"}
+              onClick={() => setIsMenuOpen(false)}
+              className={({ isActive }) =>
+                `text-white font-bold text-lg tracking-widest transition hover:text-accent ${
+                  isActive ? "text-accent" : ""
+                }`
+              }
+            >
+              {label}
+            </NavLink>
+          ))}
         </nav>
       </div>
-
-      <div className="h-20 lg:h-24"></div>
+      <div className="h-20 lg:h-24" />
     </>
   );
 };
