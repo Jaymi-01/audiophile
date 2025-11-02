@@ -202,7 +202,7 @@ const ZX9Speaker: React.FC = () => {
                 ZX7 SPEAKER
               </h3>
               <Link
-                to="/speaker/zx7"
+                to="/speakers/zx7"
                 className="inline-block bg-accent text-white py-3 px-8 rounded-lg hover:bg-secondary transition-colors font-bold tracking-wider text-sm"
               >
                 SEE PRODUCT
