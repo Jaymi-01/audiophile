@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FiPlus, FiMinus } from "react-icons/fi";
 import Headphones1 from "../../images/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg";
-import Headphones2 from "../../images/product-xx99-mark-one-headphones/mobile/image-category-page-preview.png";
-import Headphones3 from "../../images/product-xx59-headphones/mobile/image-category-page-preview.jpg";
+import Headphones2 from "../../images/product-xx59-headphones/mobile/image-category-page-preview.jpg";
+import Headphones3 from "../../images/product-xx99-mark-one-headphones/mobile/image-category-page-preview.jpg";
 import Speaker from "../../images/product-zx9-speaker/mobile/image-product.jpg";
-import ManMobile from "../../images/product-xx99-mark-one-headphones/mobile/image-gallery-1.jpg";
-import Image1Mobile from "../../images/product-xx99-mark-one-headphones/mobile/image-gallery-2.jpg";
-import Image2Mobile from "../../images/product-xx99-mark-one-headphones/mobile/image-gallery-3.jpg";
-import ManDesktop from "../../images/product-xx99-mark-one-headphones/desktop/image-gallery-1.jpg";
-import Image1Desktop from "../../images/product-xx99-mark-one-headphones/desktop/image-gallery-2.jpg";
-import Image2Desktop from "../../images/product-xx99-mark-one-headphones/desktop/image-gallery-3.jpg";
+import ManMobile from "../../images/product-xx59-headphones/mobile/image-gallery-1.jpg";
+import Image1Mobile from "../../images/product-xx59-headphones/mobile/image-gallery-2.jpg";
+import Image2Mobile from "../../images/product-xx59-headphones/mobile/image-gallery-3.jpg";
+import ManDesktop from "../../images/product-xx59-headphones/desktop/image-gallery-1.jpg";
+import Image1Desktop from "../../images/product-xx59-headphones/desktop/image-gallery-2.jpg";
+import Image2Desktop from "../../images/product-xx59-headphones/desktop/image-gallery-3.jpg";
 import Footer from "../home/Footer";
 import Gadgets from "../home/Gadgets";
 
@@ -38,7 +38,7 @@ const XX59: React.FC = () => {
     title: "XX59 Headphones",
     description:
       "Enjoy your audio almost anywhere and customize it to your specific tastes with the XX59 headphones. The stylish yet durable versatile wireless headset is a brilliant companion at home or on the move.",
-    amount: "$ 1,750",
+    amount: "$ 899",
     link: "/cart/cart.jsx",
   };
 
@@ -133,20 +133,20 @@ const XX59: React.FC = () => {
             <div className="flex-1">
               <h2 className="text-3xl font-bold text-black mb-6">FEATURES</h2>
               <p className="text-black/50 text-[15px] leading-[25px] mb-6">
-                As the headphones all others are measured against, the XX99 Mark
-                I demonstrates over five decades of audio expertise, redefining
-                the critical listening experience. This pair of closed-back
-                headphones are made of industrial, aerospace-grade materials to
-                emphasize durability at a relatively light weight of 11 oz.
+                These headphones have been created from durable, high-quality
+                materials tough enough to take anywhere. Its compact folding
+                design fuses comfort and minimalist style making it perfect for
+                travel. Flawless transmission is assured by the latest wireless
+                technology engineered for audio synchronization with videos.
               </p>
               <p className="text-black/50 text-[15px] leading-[25px]">
-                From the handcrafted microfiber ear cushions to the robust metal
-                headband with inner damping element, the components work
-                together to deliver comfort and uncompromising sound. Its
-                closed-back design delivers up to 27 dB of passive noise
-                cancellation, reducing resonance by reflecting sound to a
-                dedicated absorber. For connectivity, a specially tuned cable is
-                included with a balanced gold connector.
+                More than a simple pair of headphones, this headset features a
+                pair of built-in microphones for clear, hands-free calling when
+                paired with a compatible smartphone. Controlling music and calls
+                is also intuitive thanks to easy-access touch buttons on the
+                earcups. Regardless of how you use the XX59 headphones, you can
+                do so all day thanks to an impressive 30-hour battery life that
+                can be rapidly recharged via USB-C.
               </p>
             </div>
 
@@ -211,7 +211,7 @@ const XX59: React.FC = () => {
                 XX99 MARK II
               </h3>
               <Link
-                to="/xx99mark2"
+                to="/headphones/xx99-mark-ii"
                 className="inline-block bg-accent text-white py-3 px-8 rounded-lg hover:bg-secondary transition-colors font-bold tracking-wider text-sm"
               >
                 SEE PRODUCT
@@ -227,10 +227,10 @@ const XX59: React.FC = () => {
                 />
               </div>
               <h3 className="text-lg font-bold tracking-wide mt-6 mb-4">
-                XX59
+                XX99 MARK I
               </h3>
               <Link
-                to="/xx59"
+                to="/headphones/xx99-mark-i"
                 className="inline-block bg-accent text-white py-3 px-8 rounded-lg hover:bg-secondary transition-colors font-bold tracking-wider text-sm"
               >
                 SEE PRODUCT
