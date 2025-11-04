@@ -59,12 +59,10 @@ const XX59: React.FC = () => {
     if (window.history.state?.idx > 0) navigate(-1);
     else navigate("/");
   };
-
-  // ✅ ADD TO CART FUNCTION
   const handleAddToCart = async () => {
     try {
       await addToCart({
-        productId: product.id.toString(),
+        productId: "XX59",
         name: product.title,
         price: product.amount,
         image: product.image,
