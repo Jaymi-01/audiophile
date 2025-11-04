@@ -24,7 +24,7 @@ interface Product {
   link: string;
 }
 
-const ZX9Speaker: React.FC = () => {
+const ZX7Speaker: React.FC = () => {
   const navigate = useNavigate();
   const [quantity, setQuantity] = useState<number>(1);
   const [isDesktop, setIsDesktop] = useState<boolean>(
@@ -266,4 +266,4 @@ const ZX9Speaker: React.FC = () => {
   );
 };
 
-export default ZX9Speaker;
+export default ZX7Speaker;
