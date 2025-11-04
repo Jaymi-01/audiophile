@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FiPlus, FiMinus } from "react-icons/fi";
+import { useMutation } from "convex/react";
+import { api } from "../../../convex/_generated/api";
 import Headphones1 from "../../images/product-xx59-headphones/desktop/image-category-page-preview.jpg";
 import Headphones2 from "../../images/product-yx1-earphones/mobile/image-category-page-preview.jpg";
 import Headphones3 from "../../images/product-xx99-mark-one-headphones/mobile/image-category-page-preview.jpg";
@@ -20,8 +22,7 @@ interface Product {
   label?: string;
   title: string;
   description: string;
-  amount: string;
-  link: string;
+  amount: number;
 }
 
 const YX1: React.FC = () => {
@@ -31,6 +32,8 @@ const YX1: React.FC = () => {
     window.innerWidth >= 1024
   );
 
+  const addToCart = useMutation(api.cart.addToCart);
+
   const product: Product = {
     id: 1,
     image: Headphones2,
@@ -38,8 +41,7 @@ const YX1: React.FC = () => {
     title: "YX1 WIRELESS EARPHONES",
     description:
       "Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature.",
-    amount: "$ 599",
-    link: "/cart/cart.jsx",
+    amount: 599,
   };
 
   useEffect(() => {
@@ -54,6 +56,20 @@ const YX1: React.FC = () => {
   const handleGoBack = () => {
     if (window.history.state?.idx > 0) navigate(-1);
     else navigate("/");
+  };
+
+  const handleAddToCart = async () => {
+    try {
+      await addToCart({
+        productId: "yx1-earphones",
+        name: product.title,
+        price: product.amount,
+        image: product.image,
+        quantity,
+      });
+    } catch (error) {
+      console.error("Error adding to cart:", error);
+    }
   };
 
   const galleryImages = isDesktop
@@ -116,12 +132,12 @@ const YX1: React.FC = () => {
                     </button>
                   </div>
 
-                  <Link
-                    to={product.link}
+                  <button
+                    onClick={handleAddToCart}
                     className="inline-block bg-accent text-white py-4 px-8 rounded-lg hover:bg-secondary transition-colors font-bold tracking-wider text-sm"
                   >
                     ADD TO CART
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>
