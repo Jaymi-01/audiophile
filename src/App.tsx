@@ -12,6 +12,7 @@ import XX59 from "./pages/headphones/XX59";
 import ZX9Speaker from "./pages/speakers/ZX9Speaker";
 import ZX7Speaker from "./pages/speakers/ZX7Speaker";
 import YX1 from "./pages/earphones/YX1";
+import Footer from './components/Footer'
 
 import { CartProvider, useCart } from "./context/CartContext";
 
@@ -35,6 +36,7 @@ const AppContent: React.FC = () => {
           <Route path="/speakers/zx7" element={<ZX7Speaker />} />
           <Route path="/earphones/yx1" element={<YX1 />} />
         </Routes>
+        <Footer />
       </div>
     </div>
   );
