@@ -22,7 +22,7 @@ interface Product {
   label?: string;
   title: string;
   description: string;
-  amount: number; // Changed to number for easier handling
+  amount: number; 
 }
 
 const XX99MarkI: React.FC = () => {
