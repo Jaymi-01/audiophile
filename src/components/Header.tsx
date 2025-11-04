@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { FiShoppingCart, FiMenu, FiX } from "react-icons/fi";
 import Logo from "../assets/logo.svg";
@@ -8,6 +8,7 @@ import { api } from "../../convex/_generated/api";
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showCart, setShowCart] = useState(false);
+  const cartRef = useRef<HTMLDivElement | null>(null);
 
   const cartItems = useQuery(api.cart.getCart) || [];
   const clearCart = useMutation(api.cart.clearCart);
@@ -19,15 +20,25 @@ const Header: React.FC = () => {
     updateQuantity({ productId: id, quantity });
   };
 
-  const handleClear = () => {
-    clearCart();
-  };
+  const handleClear = () => clearCart();
+
+  // 🧠 Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (cartRef.current && !cartRef.current.contains(event.target as Node)) {
+        setShowCart(false);
+      }
+    };
+    if (showCart) document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [showCart]);
 
   return (
     <>
       <header className="fixed top-0 left-0 w-full bg-primary font-texts shadow-lg z-50">
         <div className="max-w-6xl mx-auto px-6 lg:px-24">
           <div className="flex items-center justify-between h-20 lg:h-24 relative">
+            {/* Mobile Menu Toggle */}
             <button
               onClick={() => setIsMenuOpen((prev) => !prev)}
               className="lg:hidden text-white z-50"
@@ -36,10 +47,12 @@ const Header: React.FC = () => {
               {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
             </button>
 
+            {/* Logo Centered */}
             <div className="lg:relative lg:left-0 absolute left-1/2 transform -translate-x-1/2 lg:translate-x-0">
               <img src={Logo} alt="Audiophile Logo" />
             </div>
 
+            {/* Desktop Nav */}
             <nav className="hidden lg:flex space-x-8 font-texts text-sm absolute left-1/2 transform -translate-x-1/2">
               {[
                 { to: "/", label: "HOME" },
@@ -62,7 +75,8 @@ const Header: React.FC = () => {
               ))}
             </nav>
 
-            <div className="relative ml-auto lg:ml-0">
+            {/* Cart Icon */}
+            <div className="relative ml-auto lg:ml-0" ref={cartRef}>
               <button
                 className="relative text-white"
                 aria-label="Shopping cart"
@@ -76,8 +90,9 @@ const Header: React.FC = () => {
                 )}
               </button>
 
+              {/* Cart Dropdown */}
               {showCart && (
-                <div className="absolute right-0 mt-4 w-80 bg-white text-black rounded-lg shadow-xl p-6 z-50">
+                <div className="absolute right-0 mt-6 w-80 bg-white text-black rounded-lg shadow-xl p-6 z-50">
                   <div className="flex justify-between items-center mb-4">
                     <h3 className="font-bold text-lg tracking-wider uppercase">
                       Cart ({cartCount})
@@ -119,7 +134,10 @@ const Header: React.FC = () => {
                           <div className="flex items-center space-x-2">
                             <button
                               onClick={() =>
-                                handleQuantityChange(item._id, item.quantity - 1)
+                                handleQuantityChange(
+                                  item.productId,
+                                  item.quantity - 1
+                                )
                               }
                               className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300"
                             >
@@ -130,7 +148,10 @@ const Header: React.FC = () => {
                             </span>
                             <button
                               onClick={() =>
-                                handleQuantityChange(item._id, item.quantity + 1)
+                                handleQuantityChange(
+                                  item.productId,
+                                  item.quantity + 1
+                                )
                               }
                               className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300"
                             >
@@ -174,6 +195,7 @@ const Header: React.FC = () => {
         </div>
       </header>
 
+      {/* Mobile Dropdown */}
       <div
         className={`lg:hidden fixed top-20 left-0 w-full bg-primary shadow-lg z-40 flex flex-col items-center justify-center transition-all duration-500 ease-in-out ${
           isMenuOpen
@@ -204,6 +226,8 @@ const Header: React.FC = () => {
           ))}
         </nav>
       </div>
+
+      {/* Spacer */}
       <div className="h-20 lg:h-24" />
     </>
   );
