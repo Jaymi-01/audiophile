@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useMutation } from "convex/react";
+import { api } from "../../../convex/_generated/api";
+import { useNavigate } from "react-router-dom";
 import { FiPlus, FiMinus } from "react-icons/fi";
 import Headphones1 from "../../images/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg";
 import Headphones2 from "../../images/product-xx99-mark-one-headphones/mobile/image-category-page-preview.png";
@@ -20,16 +22,15 @@ interface Product {
   label?: string;
   title: string;
   description: string;
-  amount: string;
-  link: string;
+  amount: number; // Changed to number for easier handling
 }
 
 const XX99MarkI: React.FC = () => {
   const navigate = useNavigate();
+  const addToCart = useMutation(api.cart.addToCart);
+
   const [quantity, setQuantity] = useState<number>(1);
-  const [isDesktop, setIsDesktop] = useState<boolean>(
-    window.innerWidth >= 1024
-  );
+  const [isDesktop, setIsDesktop] = useState<boolean>(window.innerWidth >= 1024);
 
   const product: Product = {
     id: 1,
@@ -38,8 +39,7 @@ const XX99MarkI: React.FC = () => {
     title: "XX99 MARK I HEADPHONES",
     description:
       "As the gold standard for headphones, the classic XX99 Mark I offers detailed and accurate audio reproduction for audiophiles, mixing engineers, and music aficionados alike in studios and on the go.",
-    amount: "$ 1,750",
-    link: "/cart/cart.jsx",
+    amount: 1750,
   };
 
   useEffect(() => {
@@ -54,6 +54,22 @@ const XX99MarkI: React.FC = () => {
   const handleGoBack = () => {
     if (window.history.state?.idx > 0) navigate(-1);
     else navigate("/");
+  };
+
+  const handleAddToCart = async () => {
+    try {
+      await addToCart({
+        productId: "xx99-mark-i",
+        name: product.title,
+        price: product.amount,
+        image: product.image,
+        quantity,
+      });
+      
+    } catch (error) {
+      console.error("Failed to add to cart:", error);
+      alert("Something went wrong while adding to the cart.");
+    }
   };
 
   const galleryImages = isDesktop
@@ -96,7 +112,7 @@ const XX99MarkI: React.FC = () => {
                   {product.description}
                 </p>
                 <p className="text-black text-[15px] font-bold leading-normal tracking-[1.286px] mb-6 lg:mb-11">
-                  {product.amount}
+                  ${product.amount.toLocaleString()}
                 </p>
 
                 <div className="flex flex-row gap-4 items-center justify-center lg:justify-start">
@@ -116,37 +132,28 @@ const XX99MarkI: React.FC = () => {
                     </button>
                   </div>
 
-                  <Link
-                    to={product.link}
+                  <button
+                    onClick={handleAddToCart}
                     className="inline-block bg-accent text-white py-4 px-8 rounded-lg hover:bg-secondary transition-colors font-bold tracking-wider text-sm"
                   >
                     ADD TO CART
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
+        {/* Features & Box */}
         <div className="py-24 lg:py-32">
           <div className="flex flex-col md:flex-row gap-8 md:gap-16">
             <div className="flex-1">
               <h2 className="text-3xl font-bold text-black mb-6">FEATURES</h2>
               <p className="text-black/50 text-[15px] leading-[25px] mb-6">
-                As the headphones all others are measured against, the XX99 Mark
-                I demonstrates over five decades of audio expertise, redefining
-                the critical listening experience. This pair of closed-back
-                headphones are made of industrial, aerospace-grade materials to
-                emphasize durability at a relatively light weight of 11 oz.
+                As the headphones all others are measured against, the XX99 Mark I demonstrates over five decades of audio expertise, redefining the critical listening experience. This pair of closed-back headphones are made of industrial, aerospace-grade materials to emphasize durability at a relatively light weight of 11 oz.
               </p>
               <p className="text-black/50 text-[15px] leading-[25px]">
-                From the handcrafted microfiber ear cushions to the robust metal
-                headband with inner damping element, the components work
-                together to deliver comfort and uncompromising sound. Its
-                closed-back design delivers up to 27 dB of passive noise
-                cancellation, reducing resonance by reflecting sound to a
-                dedicated absorber. For connectivity, a specially tuned cable is
-                included with a balanced gold connector.
+                From the handcrafted microfiber ear cushions to the robust metal headband with inner damping element, the components work together to deliver comfort and uncompromising sound.
               </p>
             </div>
 
@@ -169,95 +176,48 @@ const XX99MarkI: React.FC = () => {
           </div>
         </div>
 
+        {/* Gallery */}
         <div className="space-y-24 lg:space-y-32">
           <div className="flex flex-col lg:flex-row lg:flex-2 gap-5 lg:gap-8">
             <div className="flex flex-col gap-5 lg:gap-8">
-              <img
-                className="rounded-lg"
-                src={galleryImages[0]}
-                alt="Gallery 1"
-              />
-              <img
-                className="rounded-lg"
-                src={galleryImages[1]}
-                alt="Gallery 2"
-              />
+              <img className="rounded-lg" src={galleryImages[0]} alt="Gallery 1" />
+              <img className="rounded-lg" src={galleryImages[1]} alt="Gallery 2" />
             </div>
             <div>
-              <img
-                className="rounded-lg"
-                src={galleryImages[2]}
-                alt="Gallery 3"
-              />
+              <img className="rounded-lg" src={galleryImages[2]} alt="Gallery 3" />
             </div>
           </div>
         </div>
 
+        {/* You may also like */}
         <div className="py-24 lg:py-32">
           <h2 className="text-center text-2xl md:text-3xl font-bold tracking-wide mb-12">
             YOU MAY ALSO LIKE
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-            <div className="flex flex-col items-center">
-              <div className="bg-lightGray rounded-lg flex items-center justify-center w-full aspect-square overflow-hidden">
-                <img
-                  src={Headphones1}
-                  alt="XX99 Mark II"
-                  className="w-4/5 h-auto object-contain"
-                />
+            {[ 
+              { img: Headphones1, title: "XX99 MARK II", link: "/headphones/xx99-mark-ii" },
+              { img: Headphones3, title: "XX59", link: "/headphones/xx59" },
+              { img: Speaker, title: "ZX9 SPEAKER", link: "/speaker/zx9speaker" },
+            ].map(({ img, title, link }) => (
+              <div key={title} className="flex flex-col items-center">
+                <div className="bg-lightGray rounded-lg flex items-center justify-center w-full aspect-square overflow-hidden">
+                  <img src={img} alt={title} className="w-4/5 h-auto object-contain" />
+                </div>
+                <h3 className="text-lg font-bold tracking-wide mt-6 mb-4">{title}</h3>
+                <button
+                  onClick={() => navigate(link)}
+                  className="inline-block bg-accent text-white py-3 px-8 rounded-lg hover:bg-secondary transition-colors font-bold tracking-wider text-sm"
+                >
+                  SEE PRODUCT
+                </button>
               </div>
-              <h3 className="text-lg font-bold tracking-wide mt-6 mb-4">
-                XX99 MARK II
-              </h3>
-              <Link
-                to="/headphones/xx99-mark-ii"
-                className="inline-block bg-accent text-white py-3 px-8 rounded-lg hover:bg-secondary transition-colors font-bold tracking-wider text-sm"
-              >
-                SEE PRODUCT
-              </Link>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="bg-lightGray rounded-lg flex items-center justify-center w-full aspect-square overflow-hidden">
-                <img
-                  src={Headphones3}
-                  alt="XX59"
-                  className="w-4/5 h-auto object-contain"
-                />
-              </div>
-              <h3 className="text-lg font-bold tracking-wide mt-6 mb-4">
-                XX59
-              </h3>
-              <Link
-                to="/headphones/xx59"
-                className="inline-block bg-accent text-white py-3 px-8 rounded-lg hover:bg-secondary transition-colors font-bold tracking-wider text-sm"
-              >
-                SEE PRODUCT
-              </Link>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="bg-lightGray rounded-lg flex items-center justify-center w-full aspect-square overflow-hidden">
-                <img
-                  src={Speaker}
-                  alt="ZX9 Speaker"
-                  className="w-4/5 h-auto object-contain"
-                />
-              </div>
-              <h3 className="text-lg font-bold tracking-wide mt-6 mb-4">
-                ZX9 SPEAKER
-              </h3>
-              <Link
-                to="/speaker/zx9speaker"
-                className="inline-block bg-accent text-white py-3 px-8 rounded-lg hover:bg-secondary transition-colors font-bold tracking-wider text-sm"
-              >
-                SEE PRODUCT
-              </Link>
-            </div>
+            ))}
           </div>
         </div>
       </div>
+
       <Gadgets />
       <Footer />
     </section>
