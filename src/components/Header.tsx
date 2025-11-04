@@ -22,7 +22,6 @@ const Header: React.FC = () => {
 
   const handleClear = () => clearCart();
 
-  // 🧠 Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (cartRef.current && !cartRef.current.contains(event.target as Node)) {
@@ -47,12 +46,10 @@ const Header: React.FC = () => {
               {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
             </button>
 
-            {/* Logo Centered */}
             <div className="lg:relative lg:left-0 absolute left-1/2 transform -translate-x-1/2 lg:translate-x-0">
               <img src={Logo} alt="Audiophile Logo" />
             </div>
 
-            {/* Desktop Nav */}
             <nav className="hidden lg:flex space-x-8 font-texts text-sm absolute left-1/2 transform -translate-x-1/2">
               {[
                 { to: "/", label: "HOME" },
@@ -90,7 +87,6 @@ const Header: React.FC = () => {
                 )}
               </button>
 
-              {/* Cart Dropdown */}
               {showCart && (
                 <div className="absolute right-0 mt-6 w-80 bg-white text-black rounded-lg shadow-xl p-6 z-50">
                   <div className="flex justify-between items-center mb-4">
