@@ -13,29 +13,42 @@ import ZX9Speaker from "./pages/speakers/ZX9Speaker";
 import ZX7Speaker from "./pages/speakers/ZX7Speaker";
 import YX1 from "./pages/earphones/YX1";
 
-const App: React.FC = () => {
-  const cartCount = 3;
+import { CartProvider, useCart } from "./context/CartContext";
+
+const AppContent: React.FC = () => {
+  const { cartCount } = useCart();
+
   return (
-    <Router>
-      <div className="font-texts">
-        <Header cartCount={cartCount} />
-        <ScrollToTop />
-        <div className="bg-background app">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/headphones" element={<Headphones />} />
-            <Route path="/speakers" element={<Speakers />} />
-            <Route path="/earphones" element={<Earphones />} />
-            <Route path="/headphones/xx99-mark-ii" element={<XX99MarkII />} />
-            <Route path="/headphones/xx99-mark-i" element={<XX99MarkI />} />
-            <Route path="/headphones/xx59" element={<XX59 />} />
-            <Route path="/speakers/zx9" element={<ZX9Speaker />} />
-            <Route path="/speakers/zx7" element={<ZX7Speaker />} />
-            <Route path="/earphones/yx1" element={<YX1 />} />
-          </Routes>
-        </div>
+    <div className="font-texts">
+      <Header cartCount={cartCount} />
+      <ScrollToTop />
+      <div className="bg-background app">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/headphones" element={<Headphones />} />
+          <Route path="/speakers" element={<Speakers />} />
+          <Route path="/earphones" element={<Earphones />} />
+          <Route path="/headphones/xx99-mark-ii" element={<XX99MarkII />} />
+          <Route path="/headphones/xx99-mark-i" element={<XX99MarkI />} />
+          <Route path="/headphones/xx59" element={<XX59 />} />
+          <Route path="/speakers/zx9" element={<ZX9Speaker />} />
+          <Route path="/speakers/zx7" element={<ZX7Speaker />} />
+          <Route path="/earphones/yx1" element={<YX1 />} />
+        </Routes>
       </div>
-    </Router>
+    </div>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <CartProvider>
+      <Router>
+        <div className="font-texts">
+          <AppContent />
+        </div>
+      </Router>
+    </CartProvider>
   );
 };
 
