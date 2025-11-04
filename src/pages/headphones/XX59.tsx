@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { FiPlus, FiMinus } from "react-icons/fi";
+import { useMutation } from "convex/react";
+import { api } from "../../../convex/_generated/api";
+
 import Headphones1 from "../../images/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg";
 import Headphones2 from "../../images/product-xx59-headphones/mobile/image-category-page-preview.jpg";
 import Headphones3 from "../../images/product-xx99-mark-one-headphones/mobile/image-category-page-preview.jpg";
@@ -20,8 +23,7 @@ interface Product {
   label?: string;
   title: string;
   description: string;
-  amount: string;
-  link: string;
+  amount: number;
 }
 
 const XX59: React.FC = () => {
@@ -31,6 +33,9 @@ const XX59: React.FC = () => {
     window.innerWidth >= 1024
   );
 
+  // Convex mutation
+  const addToCart = useMutation(api.cart.addToCart);
+
   const product: Product = {
     id: 1,
     image: Headphones2,
@@ -38,8 +43,7 @@ const XX59: React.FC = () => {
     title: "XX59 HEADPHONES",
     description:
       "Enjoy your audio almost anywhere and customize it to your specific tastes with the XX59 headphones. The stylish yet durable versatile wireless headset is a brilliant companion at home or on the move.",
-    amount: "$ 899",
-    link: "/cart/cart.jsx",
+    amount: 899,
   };
 
   useEffect(() => {
@@ -54,6 +58,23 @@ const XX59: React.FC = () => {
   const handleGoBack = () => {
     if (window.history.state?.idx > 0) navigate(-1);
     else navigate("/");
+  };
+
+  // ✅ ADD TO CART FUNCTION
+  const handleAddToCart = async () => {
+    try {
+      await addToCart({
+        productId: product.id.toString(),
+        name: product.title,
+        price: product.amount,
+        image: product.image,
+        quantity,
+      });
+      ;
+    } catch (error) {
+      console.error("Error adding to cart:", error);
+      alert("Something went wrong. Please try again.");
+    }
   };
 
   const galleryImages = isDesktop
@@ -96,7 +117,7 @@ const XX59: React.FC = () => {
                   {product.description}
                 </p>
                 <p className="text-black text-[15px] font-bold leading-normal tracking-[1.286px] mb-6 lg:mb-11">
-                  {product.amount}
+                  ${product.amount}
                 </p>
 
                 <div className="flex flex-row gap-4 items-center justify-center lg:justify-start">
@@ -116,18 +137,19 @@ const XX59: React.FC = () => {
                     </button>
                   </div>
 
-                  <Link
-                    to={product.link}
+                  <button
+                    onClick={handleAddToCart}
                     className="inline-block bg-accent text-white py-4 px-8 rounded-lg hover:bg-secondary transition-colors font-bold tracking-wider text-sm"
                   >
                     ADD TO CART
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
+        {/* FEATURES SECTION */}
         <div className="py-24 lg:py-32">
           <div className="flex flex-col md:flex-row gap-8 md:gap-16">
             <div className="flex-1">
@@ -169,30 +191,20 @@ const XX59: React.FC = () => {
           </div>
         </div>
 
+        {/* GALLERY SECTION */}
         <div className="space-y-24 lg:space-y-32">
           <div className="flex flex-col lg:flex-row lg:flex-2 gap-5 lg:gap-8">
             <div className="flex flex-col gap-5 lg:gap-8">
-              <img
-                className="rounded-lg"
-                src={galleryImages[0]}
-                alt="Gallery 1"
-              />
-              <img
-                className="rounded-lg"
-                src={galleryImages[1]}
-                alt="Gallery 2"
-              />
+              <img className="rounded-lg" src={galleryImages[0]} alt="Gallery 1" />
+              <img className="rounded-lg" src={galleryImages[1]} alt="Gallery 2" />
             </div>
             <div>
-              <img
-                className="rounded-lg"
-                src={galleryImages[2]}
-                alt="Gallery 3"
-              />
+              <img className="rounded-lg" src={galleryImages[2]} alt="Gallery 3" />
             </div>
           </div>
         </div>
 
+        {/* RECOMMENDATIONS */}
         <div className="py-24 lg:py-32">
           <h2 className="text-center text-2xl md:text-3xl font-bold tracking-wide mb-12">
             YOU MAY ALSO LIKE
@@ -222,7 +234,7 @@ const XX59: React.FC = () => {
               <div className="bg-lightGray rounded-lg flex items-center justify-center w-full aspect-square overflow-hidden">
                 <img
                   src={Headphones3}
-                  alt="XX59"
+                  alt="XX99 MARK I"
                   className="w-4/5 h-auto object-contain"
                 />
               </div>
