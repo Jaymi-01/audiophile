@@ -46,5 +46,5 @@ export default defineSchema({
       grandTotal: v.number(),
     }),
     createdAt: v.number(),
-  }),
+  }).index("by_user", ["userId"]),
 });
