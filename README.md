@@ -26,7 +26,7 @@ Icons	react-icons (Feather Icons)
 Hosting	Vercel (Recommended)
 ⚙️ Installation & Setup
 1️⃣ Clone the Repository
-git clone https://github.com/yourusername/audiophile-ecommerce.git
+git clone https://github.com/Jaymi-01/audiophile.git
 cd audiophile-ecommerce
 
 2️⃣ Install Dependencies
