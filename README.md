@@ -1,16 +1,63 @@
-# React + Vite
+🛍️ Audiophile E-Commerce App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React + Convex web application that powers an Audiophile-style e-commerce store — including dynamic product pages, cart functionality, and a detailed Order Confirmation page.
 
-Currently, two official plugins are available:
+🚀 Features
+🧩 Core Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Dynamic Product Pages – Display detailed information for each product (e.g. XX99 Mark II Headphones).
 
-## React Compiler
+Add to Cart Functionality – Users can add, remove, and update items in their cart.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Convex Backend Integration – Real-time queries and mutations for storing and fetching cart and order data.
 
-## Expanding the ESLint configuration
+Order Confirmation Page – Displays full order details including customer info, shipping info, and totals.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Responsive Design – Fully optimized for mobile, tablet, and desktop.
+
+Error Handling & Fallbacks – Handles missing orders, invalid IDs, and async loading gracefully.
+
+🧠 Tech Stack
+Category	Technology
+Frontend	React (Vite or CRA), TypeScript, React Router
+UI Styling	Tailwind CSS
+Backend	Convex Cloud Functions
+Icons	react-icons (Feather Icons)
+Hosting	Vercel (Recommended)
+⚙️ Installation & Setup
+1️⃣ Clone the Repository
+git clone https://github.com/yourusername/audiophile-ecommerce.git
+cd audiophile-ecommerce
+
+2️⃣ Install Dependencies
+npm install
+
+3️⃣ Set Up Convex
+
+If you haven’t already:
+
+npx convex dev
+
+
+This will generate your local Convex environment and create the /convex/ directory.
+
+4️⃣ Configure Environment Variables
+
+Create a .env.local file at the project root with:
+
+VITE_CONVEX_URL=https://your-convex-deployment-name.convex.cloud
+
+
+💡 To get your Convex deployment URL:
+
+Visit https://dashboard.convex.dev
+
+Create a project and deploy it.
+
+Copy the Production Deployment URL.
+
+🧪 Running the App Locally
+
+Start the development server:
+
+npm run dev
